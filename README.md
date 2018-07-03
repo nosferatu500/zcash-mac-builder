@@ -1,7 +1,5 @@
 # Yet Another Zcash Builder for Apple Platform
 
-![Screenshot](https://github.com/kozyilmaz/zcash-apple/raw/master/docs/zcash-apple.png "Zcash on Mac OS")
-
 **This project requires Xcode 9 and a Mac running macOS 10.12.6 or later.**  
 This repository builds standalone Zcash binaries for macOS platform without installing brew.  
 All build tools (`autoconf, automake, libtool, pkgconfig, cmake, install and readlink`) and `Zcash` are compiled from scratch.  
@@ -12,10 +10,11 @@ All build tools (`autoconf, automake, libtool, pkgconfig, cmake, install and rea
 # run once to install Xcode CLI tools
 $ xcode-select --install
 # clone and build Zcash on macOS
-$ git clone https://github.com/kozyilmaz/zcash-apple.git
+$ git clone https://github.com/nosferatu500/zcash-mac-builder.git
 $ cd zcash-apple
 $ source environment
-$ make
+$ PRINT_DEBUG=y make all
+# If get error with unused -pie, then delete --enable-werror from build.sh
 ```
 
 In case of an error please run the following command for debug info

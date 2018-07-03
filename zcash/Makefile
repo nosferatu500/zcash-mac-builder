@@ -5,15 +5,17 @@ include ../Makefile.build
 
 ZCASH_VERSION=v1.1.1
 
+BRANCH=initialBranch
+
 zcash_clone:
-	if [ ! -d "zcash_$(ZCASH_VERSION)" ]; then git clone -b $(ZCASH_VERSION) https://github.com/zcash/zcash.git zcash_$(ZCASH_VERSION); fi
+	if [ ! -d "zcash_$(ZCASH_VERSION)" ]; then git clone -b $(BRANCH) https://git.sfxdx.ru/cryptic/secretcoin zcash_$(ZCASH_VERSION); fi
 
 zcash_config:
 	$(call patchme,zcash_$(ZCASH_VERSION))
 
 zcash_build:
 	( cd zcash_$(ZCASH_VERSION); \
-		LIBTOOLIZE=glibtoolize ./zcutil/build.sh -j ${BSPJOB}; \
+		LIBTOOLIZE=glibtoolize ./zcutil/build.sh --disable-libs -j ${BSPJOB}; \
 	)
 
 zcash_install:
