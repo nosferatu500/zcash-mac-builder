@@ -11,7 +11,7 @@ All build tools (`autoconf, automake, libtool, pkgconfig, cmake, install and rea
 $ xcode-select --install
 # clone and build Zcash on macOS
 $ git clone https://github.com/nosferatu500/zcash-mac-builder.git
-$ cd zcash-apple
+$ cd zcash-mac-builder
 $ source environment
 $ PRINT_DEBUG=y make all
 # If get error with unused -pie, then delete --enable-werror from build.sh
